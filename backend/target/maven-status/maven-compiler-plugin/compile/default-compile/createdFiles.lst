@@ -1,6 +1,0 @@
-com/endpoint/endpoint/config/CorsConfig.class
-com/endpoint/endpoint/controller/UserController.class
-com/endpoint/endpoint/EndpointApplication.class
-com/endpoint/endpoint/repository/UserRepository.class
-com/endpoint/endpoint/model/User.class
-com/endpoint/endpoint/config/CorsConfig$1.class
