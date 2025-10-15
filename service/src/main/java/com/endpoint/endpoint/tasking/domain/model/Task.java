@@ -18,4 +18,12 @@ public class Task {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
     }
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public String getTaskDescription() {
+        return taskDescription;
+    }
 }

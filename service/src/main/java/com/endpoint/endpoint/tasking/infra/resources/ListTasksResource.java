@@ -1,0 +1,36 @@
+package com.endpoint.endpoint.tasking.infra.resources;
+
+import com.endpoint.endpoint.tasking.domain.model.TaskListing;
+import com.endpoint.endpoint.tasking.domain.use_cases.list_task.ListTasksUseCase;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/tasks")
+public class ListTasksResource {
+
+    private final ListTasksUseCase useCase;
+
+    public ListTasksResource(ListTasksUseCase useCase) {
+        this.useCase = useCase;
+    }
+
+    @GetMapping(
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<List<TaskDto>> addtask() {
+        TaskListing taskListing = useCase.execute();
+        List<TaskDto> tasks = taskListing.tasks()
+                .stream()
+                .map(TaskDto::from)
+                .toList();
+        return ResponseEntity.ok(tasks);
+    }
+
+}

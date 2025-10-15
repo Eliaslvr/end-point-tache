@@ -5,7 +5,15 @@ import java.util.List;
 
 public class TaskListing {
 
-    private final List<Task> tasks = new ArrayList<>();
+    private final List<Task> tasks;
+
+    private TaskListing(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public static TaskListing of(List<Task> tasks) {
+        return new TaskListing(tasks);
+    }
 
     public List<Task> tasks() {
         return new ArrayList<>(tasks);
