@@ -4,3 +4,5 @@
 */target
 .vscode
 ssd
+.DS_Store
+.idea
