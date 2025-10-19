@@ -9,7 +9,7 @@ function AddUser({ onUserAdded }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/api/users", { name, tache });
+      await axios.post("http://localhost:8080//tasks/add", { name, tache });
       setName("");
       setTache("");
       onUserAdded(); // rafraîchit la liste

@@ -6,14 +6,14 @@ function UserList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/users")
+    axios.get("http://localhost:8080/tasks")
       .then(response => setUsers(response.data))
       .catch(error => console.error("Erreur de chargement :", error));
   }, []);
 
   const fetchUsers = () => {
     axios
-      .get("http://localhost:8080/api/users")
+      .get("http://localhost:8080/tasks")
       .then((response) => setUsers(response.data))
       .catch((error) => console.error("Erreur de chargement :", error));
   };
@@ -26,7 +26,7 @@ function UserList() {
   const handleDelete = async (id) => {
     if (window.confirm("Voulez-vous vraiment supprimer cette tâche ?")) {
         try {
-          await axios.delete(`http://localhost:8080/api/users/${id}`);
+          await axios.delete(`http://localhost:8080/tasks/${id}`);
           fetchUsers(); // rafraîchir la liste
         } catch (err) {
           console.error("Erreur de suppression :", err);

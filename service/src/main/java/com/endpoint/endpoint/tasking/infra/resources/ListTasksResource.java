@@ -1,7 +1,9 @@
 package com.endpoint.endpoint.tasking.infra.resources;
 
+import com.endpoint.endpoint.tasking.domain.model.Task;
 import com.endpoint.endpoint.tasking.domain.model.TaskListing;
 import com.endpoint.endpoint.tasking.domain.use_cases.list_task.ListTasksUseCase;
+import lombok.Data;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +23,6 @@ public class ListTasksResource {
     }
 
     @GetMapping(
-            consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<List<TaskDto>> addtask() {
@@ -33,4 +34,19 @@ public class ListTasksResource {
         return ResponseEntity.ok(tasks);
     }
 
+    @Data
+    public static class TaskDto {
+
+        private final String name;
+        private final String description;
+
+        public TaskDto(String name, String description) {
+            this.name = name;
+            this.description = description;
+        }
+
+        public static TaskDto from(Task task) {
+            return new TaskDto(task.getTaskName(), task.getTaskDescription());
+        }
+    }
 }
