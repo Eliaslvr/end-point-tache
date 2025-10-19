@@ -16,5 +16,6 @@ public class TaskDto {
 
     public static TaskDto from(Task task) {
         return new TaskDto(task.getTaskName(), task.getTaskDescription());
+
     }
 }
