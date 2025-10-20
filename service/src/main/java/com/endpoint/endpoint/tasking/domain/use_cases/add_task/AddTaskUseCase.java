@@ -10,6 +10,7 @@ public class AddTaskUseCase {
     private final TaskRepository taskRepository;
 
     public AddTaskUseCase(TaskRepository taskRepository) {
+
         this.taskRepository = taskRepository;
     }
 

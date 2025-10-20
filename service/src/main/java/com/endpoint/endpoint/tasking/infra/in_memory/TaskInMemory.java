@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class TaskInMemory implements TaskRepository {
@@ -21,4 +22,17 @@ public class TaskInMemory implements TaskRepository {
     public List<Task> allTasks() {
         return List.copyOf(tasks);
     }
+
+    @Override
+    public Optional<Task> findById(String id) {
+        return tasks.stream()
+                .filter(t -> t.getId().equals(id))
+                .findFirst();
+    }
+
+    @Override
+    public void deleteById(String id) {
+        tasks.removeIf(t -> t.getId().equals(id));
+    }
+
 }

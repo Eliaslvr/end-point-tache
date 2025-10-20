@@ -39,7 +39,8 @@ function UserList() {
       <h1>Liste des tâches</h1>
       <ul>
         {users.map(u => (
-          <li key={u.id}>{u.name} — {u.tache}
+          <li key={u.id}>
+            {u.name} — {u.description}
             <button className="delete-btn" onClick={() => handleDelete(u.id)}>
               Supprimer
             </button>

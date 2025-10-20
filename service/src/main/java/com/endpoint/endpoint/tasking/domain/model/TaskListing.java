@@ -19,9 +19,9 @@ public class TaskListing {
         return new ArrayList<>(tasks);
     }
 
-    public List<Task> addTask(Task taskToAdd) {
-        final List<Task> copyOfAllTasks = new ArrayList<>(List.copyOf(tasks));
+    public TaskListing addTask(Task taskToAdd) {
+        final List<Task> copyOfAllTasks = new ArrayList<>(tasks);
         copyOfAllTasks.add(taskToAdd);
-        return new ArrayList<>(copyOfAllTasks);
+        return new TaskListing(copyOfAllTasks);
     }
 }

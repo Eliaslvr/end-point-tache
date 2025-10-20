@@ -6,16 +6,18 @@ import lombok.Data;
 @Data
 public class TaskDto {
 
+    private final String id;
     private final String name;
     private final String description;
 
-    public TaskDto(String name, String description) {
+    public TaskDto(String id, String name, String description) {
+        this.id = id;
         this.name = name;
         this.description = description;
     }
 
     public static TaskDto from(Task task) {
-        return new TaskDto(task.getTaskName(), task.getTaskDescription());
+        return new TaskDto(task.getId(), task.getTaskName(), task.getTaskDescription());
 
     }
 }
